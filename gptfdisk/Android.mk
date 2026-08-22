@@ -1,4 +1,4 @@
-﻿LOCAL_PATH := $(call my-dir)
+LOCAL_PATH := $(call my-dir)
 
 sgdisk_src_files := \
     sgdisk.cc \
@@ -26,6 +26,5 @@ LOCAL_CFLAGS += -Wno-unused-parameter
 LOCAL_SHARED_LIBRARIES := libext2_uuid
 LOCAL_MODULE := sgdisk
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := RECOVERY_EXECUTABLES
 LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)/system/bin
 include $(BUILD_EXECUTABLE)
