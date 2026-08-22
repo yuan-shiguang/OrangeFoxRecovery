@@ -18,6 +18,10 @@
 					<icon res="mount_list"/>
 					<action function="page">mount</action>
 				</listitem>
+				<listitem name="{@expand_system_hdr}">
+					<icon res="partitions"/>
+					<action function="page">expand_system</action>
+				</listitem>
 				<listitem name="{@partitions_management}">
 					<icon res="partitions"/>
 					<action function="page">part_manage</action>

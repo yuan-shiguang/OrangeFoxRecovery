@@ -301,6 +301,7 @@ GUIAction::GUIAction(xml_node <> *node):GUIObject(node)
 #endif
       ADD_ACTION(mergesnapshots);
       ADD_ACTION(disableAVB2);
+      ADD_ACTION(expandsystem);
 
       //[f/d] Threaded actions
       ADD_ACTION(batch);
@@ -3055,6 +3056,59 @@ int GUIAction::disableAVB2(string arg __unused) {
 	if (PartitionManager.Disable_AVB2(true)) {
 		op_status = 0;
 	}
+	operation_end(op_status);
+	return 0;
+}
+
+// 扩容 system 分区 (Mi8/dipper): 删除 sda#21、sde#47、sde#48,
+// 按用户输入的 GB 大小重建 system, 并重建 userdata/vendor, 完成后重启到 recovery
+int GUIAction::expandsystem(string arg __unused) {
+	int op_status = 1;
+	operation_start("Expand System Partition");
+
+	if (simulate) {
+		simulate_progress_bar();
+		operation_end(0);
+		return 0;
+	}
+
+	// 读取用户输入的 system 分区大小(GB)
+	int size_gb = DataManager::GetIntValue("expand_system_size");
+	if (size_gb <= 0) {
+		gui_err("expand_system_invalid_size=Invalid system size! Please enter a valid value in GB.");
+		operation_end(1);
+		return 0;
+	}
+
+	string SDAPATH = "/dev/block/sda";
+	string SDEPATH = "/dev/block/sde";
+	string size_str = to_string(size_gb);
+
+	// 需要顺序执行的 sgdisk 命令; 任意一条失败即中止
+	vector<string> commands;
+	commands.push_back("sgdisk --delete=21 " + SDAPATH);
+	commands.push_back("sgdisk --delete=47 " + SDEPATH);
+	commands.push_back("sgdisk --delete=48 " + SDEPATH);
+	commands.push_back("sgdisk --new 0:0:+" + size_str + "G --change-name=21:system --typecode=21:97D7B011-54DA-4835-B3C4-917AD6E73D74 " + SDAPATH);
+	commands.push_back("sgdisk --new 0:0:0 --change-name=22:userdata --typecode=22:1B81E7E6-F50D-419B-A739-2AEEF8DA3335 " + SDAPATH);
+	commands.push_back("sgdisk --new 0:0:0 --change-name=47:vendor --typecode=47:97D7B011-54DA-4835-B3C4-917AD6E73D74 " + SDEPATH);
+
+	op_status = 0;
+	for (size_t i = 0; i < commands.size(); i++) {
+		gui_print("%s\n", commands[i].c_str());
+		if (TWFunc::Exec_Cmd(commands[i]) != 0) {
+			gui_err("expand_system_cmd_failed=Failed to modify partition table! Operation aborted.");
+			op_status = 1;
+			break;
+		}
+	}
+
+	if (op_status == 0) {
+		sync();
+		::sleep(3);
+		TWFunc::tw_reboot(rb_recovery);
+	}
+
 	operation_end(op_status);
 	return 0;
 }

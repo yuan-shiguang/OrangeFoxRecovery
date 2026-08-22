@@ -1196,5 +1196,15 @@
 		<string name="listbox_group_dynamic_part">动态分区</string>
 		<string name="listbox_group_additions">附加菜单</string>
 		<string name="partitions_management">分区管理</string>
+		<string name="expand_system_hdr">扩容system分区</string>
+		<string name="expand_system_label">扩容system分区</string>
+		<string name="expand_system_unit_gb">单位:GB</string>
+		<string name="expand_system_warn1">警告: 此操作将修改分区表!</string>
+		<string name="expand_system_warn2">userdata和vendor上的所有数据将被清除! 请先备份!</string>
+		<string name="expand_system_action_text">正在扩容system分区...</string>
+		<string name="expand_system_complete">system分区扩容完成</string>
+		<string name="expand_system_slider_text">滑动以确认扩容system分区</string>
+		<string name="expand_system_invalid_size">分区大小无效！请输入有效的数值(单位:GB)。</string>
+		<string name="expand_system_cmd_failed">修改分区表失败！操作已中止。</string>
     </resources>
 </language>

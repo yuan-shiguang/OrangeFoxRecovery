@@ -1266,5 +1266,15 @@
 		<string name="listbox_group_dynamic_part">Dynamic partitions</string>
 		<string name="listbox_group_additions">Additions</string>
 		<string name="partitions_management">Partitions Management</string>
+		<string name="expand_system_hdr">Expand System Partition</string>
+		<string name="expand_system_label">Expand System Partition</string>
+		<string name="expand_system_unit_gb">Unit: GB</string>
+		<string name="expand_system_warn1">WARNING: This operation will modify partition table!</string>
+		<string name="expand_system_warn2">All data on userdata/vendor will be ERASED! Make backup first!</string>
+		<string name="expand_system_action_text">Expanding System Partition...</string>
+		<string name="expand_system_complete">System Partition Expand Complete</string>
+		<string name="expand_system_slider_text">Swipe to Expand System Partition</string>
+		<string name="expand_system_invalid_size">Invalid system size! Please enter a valid value in GB.</string>
+		<string name="expand_system_cmd_failed">Failed to modify partition table! Operation aborted.</string>
 	</resources>
 </language>
