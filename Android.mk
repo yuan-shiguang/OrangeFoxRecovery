@@ -776,7 +776,6 @@ include $(commands_TWRP_local_path)/injecttwrp/Android.mk \
     $(commands_TWRP_local_path)/simg2img/Android.mk \
     $(commands_TWRP_local_path)/adbbu/Android.mk \
     $(commands_TWRP_local_path)/twrpDigest/Android.mk \
-    $(commands_TWRP_local_path)/gptfdisk/Android.mk \
     $(commands_TWRP_local_path)/attr/Android.mk
 
 ifneq ($(TW_OZIP_DECRYPT_KEY),)
