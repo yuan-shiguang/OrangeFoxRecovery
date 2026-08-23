@@ -533,20 +533,17 @@
 				<text>{@expand_system_hdr}</text>
 			</text>
 
-			<!-- 返回按钮 - 左上角 -->
 			<button style="actionbar">
 				<placement x="%ab_btn1_x%" y="%ab_y%" placement="4"/>
 				<action function="set">general_back=mount</action>
 				<action function="page">advanced</action>
 			</button>
 
-			<!-- 警告图标 -->
 			<image>
 				<placement x="%col1_x%" y="%row1_1_y%"/>
 				<image resource="icon_warning"/>
 			</image>
 
-			<!-- 警告文本 -->
 			<text style="text_body2_fail">
 				<placement x="%col1_x_indent%" y="%row1_1_y%"/>
 				<text>{@expand_system_warn1}</text>
@@ -557,7 +554,6 @@
 				<text>{@expand_system_warn2}</text>
 			</text>
 
-			<!-- 输入框 -->
 			<input>
 				<placement x="%center_x%-150" y="800" w="300" h="%input_height%" placement="5"/>
 				<text>%expand_system_size%</text>
@@ -566,13 +562,11 @@
 				<alignment>center</alignment>
 			</input>
 
-			<!-- 单位文本  -->
 			<text style="text_body1">
 				<placement x="%center_x%" y="875" placement="3"/>
 				<text>{@expand_system_unit_gb}</text>
 			</text>
 
-			<!-- ===== 数字键盘===== -->
 			<keyboard>
 				<condition var1="tw_hide_kb" var2="0"/>
 				<placement x="0" y="1000"/>
@@ -591,7 +585,6 @@
 				</layout1>
 			</keyboard>
 
-			<!-- ===== 滑动确认按钮 ===== -->
 			<text style="caption">
 				<placement x="%center_x%" y="%slider_text_y%" placement="5"/>
 				<text>{@expand_system_slider_text}</text>
