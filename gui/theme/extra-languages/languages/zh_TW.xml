@@ -1183,7 +1183,16 @@
         <string name="listbox_group_main">主功能表</string>
 		<string name="listbox_group_static_part">靜態分區</string>
 		<string name="listbox_group_dynamic_part">動態分區</string>
-		<string name="listbox_group_additions">附加功能表</string>
 		<string name="partitions_management">分區管理</string>
+        <string name="expand_system_hdr">擴充system分割區</string>
+        <string name="expand_system_label">擴充system分割區</string>
+        <string name="expand_system_unit_gb">單位：GB</string>
+        <string name="expand_system_warn1">警告：此操作將修改分割表！</string>
+        <string name="expand_system_warn2">userdata和vendor上的所有資料將被清除！請先備份！</string>
+        <string name="expand_system_action_text">正在擴充system分割區…</string>
+        <string name="expand_system_complete">system分割區擴充完成</string>
+        <string name="expand_system_slider_text">滑動以確認擴充system分割區</string>
+        <string name="expand_system_invalid_size">分割區大小無效！請輸入有效的數值（單位：GB）。</string>
+        <string name="expand_system_cmd_failed">修改分割表失敗！操作已中止。</string>
     </resources>
 </language>

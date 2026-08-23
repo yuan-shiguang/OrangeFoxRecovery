@@ -527,16 +527,18 @@
 		<page name="expand_system">
 			<template name="base_num"/>
 
-            <text style="text_ab_title">
+			<text style="text_ab_title">
 				<placement x="%col1_x_indent%" y="%ab_bc_y%"/>
 				<text>{@expand_system_hdr}</text>
 			</text>
 
+			<!-- 警告图标 -->
 			<image>
 				<placement x="%col1_x%" y="%row1_1_y%"/>
 				<image resource="icon_warning"/>
 			</image>
 
+			<!-- 警告文本 -->
 			<text style="text_body2_fail">
 				<placement x="%col1_x_indent%" y="%row1_1_y%"/>
 				<text>{@expand_system_warn1}</text>
@@ -547,23 +549,25 @@
 				<text>{@expand_system_warn2}</text>
 			</text>
 
-			<text style="caption_hl">
-				<placement x="%center_x%" y="%center_y%-180" placement="5"/>
-				<text>{@expand_system_label}</text>
-			</text>
-
+			<!-- ===== 输入框区域（居中） ===== -->
+			<!-- 输入框 - 左侧 -->
 			<input>
-				<placement x="%center_x%" y="%center_y%-120" w="400" h="%input_height%" placement="5"/>
+				<placement x="%center_x%-200" y="%center_y%-80" w="400" h="%input_height%" placement="5"/>
 				<text>%expand_system_size%</text>
 				<data name="expand_system_size"/>
 				<restrict minlen="1" maxlen="2" allow="1234567890" />
 			</input>
 
+			<!-- 单位文本 - 输入框右侧 -->
 			<text style="text_body1">
-				<placement x="%center_x%+240" y="%center_y%-120" placement="3"/>
+				<placement x="%center_x%+220" y="%center_y%-80" placement="3"/>
 				<text>{@expand_system_unit_gb}</text>
 			</text>
 
+			<!-- ===== 数字输入键（参考 decrypt_pin 布局） ===== -->
+			<template name="keyboardnum"/>
+
+			<!-- ===== 滑动确认按钮 ===== -->
 			<text style="caption">
 				<placement x="%center_x%" y="%slider_text_y%" placement="5"/>
 				<text>{@expand_system_slider_text}</text>

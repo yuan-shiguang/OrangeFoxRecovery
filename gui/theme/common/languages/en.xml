@@ -1264,7 +1264,6 @@
 		<string name="listbox_group_main">Main</string>
 		<string name="listbox_group_static_part">Static partitions</string>
 		<string name="listbox_group_dynamic_part">Dynamic partitions</string>
-		<string name="listbox_group_additions">Additions</string>
 		<string name="partitions_management">Partitions Management</string>
 		<string name="expand_system_hdr">Expand System Partition</string>
 		<string name="expand_system_label">Expand System Partition</string>

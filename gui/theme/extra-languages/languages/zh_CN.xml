@@ -1194,7 +1194,6 @@
         <string name="listbox_group_main">主菜单</string>
 		<string name="listbox_group_static_part">静态分区</string>
 		<string name="listbox_group_dynamic_part">动态分区</string>
-		<string name="listbox_group_additions">附加菜单</string>
 		<string name="partitions_management">分区管理</string>
 		<string name="expand_system_hdr">扩容system分区</string>
 		<string name="expand_system_label">扩容system分区</string>

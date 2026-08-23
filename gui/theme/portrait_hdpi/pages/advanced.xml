@@ -39,11 +39,6 @@
 				</listitem>
 			</listbox>
 
-			<text style="caption">
-				<placement x="%gl_text_x%" y="%row4_3_y%"/>
-				<text>{@listbox_group_additions}</text>
-			</text>
-
 			<listbox style="group_list">
 				<placement x="0" y="%row5_1_y%" w="%screen_w%" h="%adv_additions_h%"/>
 				<listitem name="{@reflash_twrp}">
