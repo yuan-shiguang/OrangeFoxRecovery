@@ -565,8 +565,8 @@ endif
 # sgdisk: use the prebuilt statically-linked binary (no .so deps)
 include $(CLEAR_VARS)
 LOCAL_MODULE := sgdisk
-LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := sgdisk
 LOCAL_MODULE_CLASS := EXECUTABLES
-LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)/system/bin
-LOCAL_SRC_FILES := sgdisk_static
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)/sbin
 include $(BUILD_PREBUILT)
