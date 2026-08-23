@@ -594,7 +594,7 @@ endif
 ifneq ($(TW_EXCLUDE_ENCRYPTED_BACKUPS), true)
     TWRP_REQUIRED_MODULES += openaes openaes_license
 endif
-ifeq ($(TW_INCLUDE_FB2PNG), true)
+ifeq ($(TW_INCLUDE_FB2PNG),)
     TWRP_REQUIRED_MODULES += fb2png
 endif
 ifneq ($(TW_OEM_BUILD),true)

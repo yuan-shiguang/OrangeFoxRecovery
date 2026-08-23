@@ -557,25 +557,25 @@
 				<text>{@expand_system_warn2}</text>
 			</text>
 
-			<!-- 输入框（下移，给警告文本留空间） -->
+			<!-- 输入框 -->
 			<input>
-				<placement x="%center_x%-150" y="%row2_2_y%" w="300" h="%input_height%" placement="5"/>
+				<placement x="%center_x%-150" y="800" w="300" h="%input_height%" placement="5"/>
 				<text>%expand_system_size%</text>
 				<data name="expand_system_size"/>
 				<restrict minlen="1" maxlen="2" allow="1234567890" />
 				<alignment>center</alignment>
 			</input>
 
-			<!-- 单位文本 - 输入框下方正中间 -->
+			<!-- 单位文本  -->
 			<text style="text_body1">
-				<placement x="%center_x%" y="675" placement="3"/>
+				<placement x="%center_x%" y="875" placement="3"/>
 				<text>{@expand_system_unit_gb}</text>
 			</text>
 
-			<!-- ===== 数字键盘 ===== -->
+			<!-- ===== 数字键盘===== -->
 			<keyboard>
 				<condition var1="tw_hide_kb" var2="0"/>
-				<placement x="0" y="%keyboard_y%"/>
+				<placement x="0" y="1000"/>
 				<background color="%keyboard_bg%"/>
 				<key-alphanumeric color="%keyboard_bg%" font="keylabel-num" textcolor="%text%"/>
 				<highlight color="%keyboard_hl%"/>
@@ -587,14 +587,25 @@
 					<row1 key01="225:" key02="1" key03="2" key04="3" key05="225:"/>
 					<row2 key01="225:" key02="4" key03="5" key04="6" key05="225:"/>
 					<row3 key01="225:" key02="7" key03="8" key04="9" key05="225:"/>
-					<row4 key01="225:" key02="212:c:8" key03="0" key04="214:action" key05="225:"/>
+					<row4 key01="225:" key02="212:c:8" key03="0" key04="225:" key05="225:"/>
 				</layout1>
 			</keyboard>
 
-			<fill color="%keyboard_bg%">
-				<condition var1="tw_hide_kb" var2="0"/>
-				<placement x="0" y="%row_nav_y%" w="%screen_w%" h="%nav_h%"/>
-			</fill>
+			<!-- ===== 滑动确认按钮 ===== -->
+			<text style="caption">
+				<placement x="%center_x%" y="%slider_text_y%" placement="5"/>
+				<text>{@expand_system_slider_text}</text>
+			</text>
+
+			<slider style="slider_action">
+				<placement x="%center_x%" y="%slider_y%" placement="5"/>
+				<action function="set">tw_back=expand_system</action>
+				<action function="set">tw_action=expandsystem</action>
+				<action function="set">tw_action_text1={@expand_system_action_text}</action>
+				<action function="set">tw_complete_text1={@expand_system_complete}</action>
+				<action function="set">tw_slider_text={@expand_system_slider_text}</action>
+				<action function="page">action_page</action>
+			</slider>
 
 			<template name="gestures"/>
 
