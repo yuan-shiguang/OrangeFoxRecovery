@@ -524,13 +524,21 @@
 			</action>
 		</page>
 
+
 		<page name="expand_system">
-			<template name="base_num"/>
+			<template name="base"/>
 
 			<text style="text_ab_title">
 				<placement x="%col1_x_indent%" y="%ab_bc_y%"/>
 				<text>{@expand_system_hdr}</text>
 			</text>
+
+			<!-- 返回按钮 - 左上角 -->
+			<button style="actionbar">
+				<placement x="%ab_btn1_x%" y="%ab_y%" placement="4"/>
+				<action function="set">general_back=mount</action>
+				<action function="page">advanced</action>
+			</button>
 
 			<!-- 警告图标 -->
 			<image>
@@ -549,46 +557,46 @@
 				<text>{@expand_system_warn2}</text>
 			</text>
 
-			<!-- ===== 输入框区域（居中） ===== -->
-			<!-- 输入框 - 左侧 -->
+			<!-- 输入框（下移，给警告文本留空间） -->
 			<input>
-				<placement x="%center_x%-200" y="%center_y%-80" w="400" h="%input_height%" placement="5"/>
+				<placement x="%center_x%-150" y="%row2_2_y%" w="300" h="%input_height%" placement="5"/>
 				<text>%expand_system_size%</text>
 				<data name="expand_system_size"/>
 				<restrict minlen="1" maxlen="2" allow="1234567890" />
+				<alignment>center</alignment>
 			</input>
 
-			<!-- 单位文本 - 输入框右侧 -->
+			<!-- 单位文本 - 输入框下方正中间 -->
 			<text style="text_body1">
-				<placement x="%center_x%+220" y="%center_y%-80" placement="3"/>
+				<placement x="%center_x%" y="675" placement="3"/>
 				<text>{@expand_system_unit_gb}</text>
 			</text>
 
-			<!-- ===== 数字输入键（参考 decrypt_pin 布局） ===== -->
-			<template name="keyboardnum"/>
+			<!-- ===== 数字键盘 ===== -->
+			<keyboard>
+				<condition var1="tw_hide_kb" var2="0"/>
+				<placement x="0" y="%keyboard_y%"/>
+				<background color="%keyboard_bg%"/>
+				<key-alphanumeric color="%keyboard_bg%" font="keylabel-num" textcolor="%text%"/>
+				<highlight color="%keyboard_hl%"/>
+				<keylabel key="0:c:8" text="" resource="backspace"/>
+				<keylabel key="0:action" text="" resource="enter" alt="expandsystem"/>
+				<layout resource="keyback_num"/>
+				<layout1>
+					<keysize height="160" width="212"/>
+					<row1 key01="225:" key02="1" key03="2" key04="3" key05="225:"/>
+					<row2 key01="225:" key02="4" key03="5" key04="6" key05="225:"/>
+					<row3 key01="225:" key02="7" key03="8" key04="9" key05="225:"/>
+					<row4 key01="225:" key02="212:c:8" key03="0" key04="214:action" key05="225:"/>
+				</layout1>
+			</keyboard>
 
-			<!-- ===== 滑动确认按钮 ===== -->
-			<text style="caption">
-				<placement x="%center_x%" y="%slider_text_y%" placement="5"/>
-				<text>{@expand_system_slider_text}</text>
-			</text>
+			<fill color="%keyboard_bg%">
+				<condition var1="tw_hide_kb" var2="0"/>
+				<placement x="0" y="%row_nav_y%" w="%screen_w%" h="%nav_h%"/>
+			</fill>
 
-			<slider style="slider_action">
-				<placement x="%center_x%" y="%slider_y%" placement="5"/>
-				<action function="set">tw_back=expand_system</action>
-				<action function="set">tw_action=expandsystem</action>
-				<action function="set">tw_action_text1={@expand_system_action_text}</action>
-				<action function="set">tw_complete_text1={@expand_system_complete}</action>
-				<action function="set">tw_slider_text={@expand_system_slider_text}</action>
-				<action function="page">action_page</action>
-			</slider>
-
-			<template name="gestures_key"/>
-
-			<action>
-				<touch key="home"/>
-				<action function="page">main</action>
-			</action>
+			<template name="gestures"/>
 
 			<action>
 				<touch key="back"/>
