@@ -588,15 +588,11 @@ ifneq ($(TW_NO_EXFAT), true)
         TWRP_REQUIRED_MODULES += exfat-fuse
     endif
 endif
-ifeq ($(BOARD_HAS_NO_REAL_SDCARD),)
-    TWRP_REQUIRED_MODULES += sgdisk
-endif
+TWRP_REQUIRED_MODULES += sgdisk
 ifneq ($(TW_EXCLUDE_ENCRYPTED_BACKUPS), true)
     TWRP_REQUIRED_MODULES += openaes openaes_license
 endif
-ifeq ($(TW_INCLUDE_FB2PNG),)
-    TWRP_REQUIRED_MODULES += fb2png
-endif
+TWRP_REQUIRED_MODULES += fb2png
 ifneq ($(TW_OEM_BUILD),true)
     TWRP_REQUIRED_MODULES += orscmd
 endif
@@ -804,9 +800,7 @@ ifneq ($(TW_OEM_BUILD),true)
 endif
 
 # FB2PNG
-ifeq ($(TW_INCLUDE_FB2PNG), true)
-    include $(commands_TWRP_local_path)/fb2png/Android.mk
-endif
+include $(commands_TWRP_local_path)/fb2png/Android.mk
 
 endif
 
