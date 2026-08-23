@@ -565,6 +565,7 @@ endif
 # sgdisk: use the prebuilt statically-linked binary (no .so deps)
 include $(CLEAR_VARS)
 LOCAL_MODULE := sgdisk
+LOCAL_OVERRIDES := sgdisk
 LOCAL_SRC_FILES := sgdisk
 LOCAL_MODULE_CLASS := EXECUTABLES
 LOCAL_MODULE_TAGS := optional
