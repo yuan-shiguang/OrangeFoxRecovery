@@ -3086,7 +3086,7 @@ int GUIAction::expandsystem(string arg __unused) {
 
 	// 需要顺序执行的 sgdisk 命令; 任意一条失败即中止
 	vector<string> commands;
-  	commands.push_back("echo Author:Yuanshiguang/元時光'");
+  	commands.push_back("echo Author:Yuanshiguang/元時光");
   	commands.push_back("echo ");
 	commands.push_back("sgdisk --delete=21 " + SDAPATH);
 	commands.push_back("sgdisk --delete=47 " + SDEPATH);
