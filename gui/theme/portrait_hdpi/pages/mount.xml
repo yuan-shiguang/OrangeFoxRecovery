@@ -563,7 +563,7 @@
 			</input>
 
 			<text style="text_body1">
-				<placement x="%center_x%" y="875" placement="3"/>
+				<placement x="%center_x%" y="910" placement="3"/>
 				<text>{@expand_system_unit_gb}</text>
 			</text>
 
