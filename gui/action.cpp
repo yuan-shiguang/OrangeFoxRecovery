@@ -3080,20 +3080,19 @@ int GUIAction::expandsystem(string arg __unused) {
 		return 0;
 	}
 
-	string SDAPATH = "/dev/block/sda";
-	string SDEPATH = "/dev/block/sde";
+	string EMMCPATH="/dev/block/mmcblk0"
 	string size_str = to_string(size_gb);
 
 	// 需要顺序执行的 sgdisk 命令; 任意一条失败即中止
 	vector<string> commands;
   	commands.push_back("echo Author:Yuanshiguang/元時光");
   	commands.push_back("echo ");
-	commands.push_back("sgdisk --delete=21 " + SDAPATH);
-	commands.push_back("sgdisk --delete=47 " + SDEPATH);
-	commands.push_back("sgdisk --delete=48 " + SDEPATH);
-	commands.push_back("sgdisk --new 0:0:+" + size_str + "G --change-name=21:system --typecode=21:97D7B011-54DA-4835-B3C4-917AD6E73D74 " + SDAPATH);
-	commands.push_back("sgdisk --new 0:0:0 --change-name=22:userdata --typecode=22:1B81E7E6-F50D-419B-A739-2AEEF8DA3335 " + SDAPATH);
-	commands.push_back("sgdisk --new 0:0:0 --change-name=47:vendor --typecode=47:97D7B011-54DA-4835-B3C4-917AD6E73D74 " + SDEPATH);
+	commands.push_back("sgdisk --delete=79 " + EMMCPATH);
+	commands.push_back("sgdisk --delete=80 " + EMMCPATH);
+	commands.push_back("sgdisk --delete=81 " + EMMCPATH);
+	commands.push_back("sgdisk --new 0:0:+" + size_str + "G --change-name=79:system --typecode=79:97D7B011-54DA-4835-B3C4-917AD6E73D74" + EMMCPATH);
+	commands.push_back("sgdisk --new 0:0:+3G --change-name=80:vendor --typecode=80:97D7B011-54DA-4835-B3C4-917AD6E73D74  " + EMMCPATH);
+	commands.push_back("sgdisk  --new 0:0:0 --change-name=81:userdata --typecode=81:1B81E7E6-F50D-419B-A739-2AEEF8DA3335" + EMMCPATH);
 
 	op_status = 0;
 	for (size_t i = 0; i < commands.size(); i++) {
